@@ -3,11 +3,25 @@ package main
 import (
 	"database/sql"
 	"flag"
+	"fmt"
+	"html/template"
 	"log/slog"
+	"net/http"
 	"os"
+	"time"
 
+	"github.com/alexedwards/scs/sqlite3store"
+	"github.com/alexedwards/scs/v2"
+	"github.com/go-playground/form/v4"
 	_ "github.com/mattn/go-sqlite3"
 )
+
+type application struct {
+	logger         *slog.Logger
+	templateCache  map[string]*template.Template
+	formDecoder    *form.Decoder
+	sessionManager *scs.SessionManager
+}
 
 func main() {
 	addr := flag.String("addr", ":4321", "HTTP network address")
@@ -23,6 +37,41 @@ func main() {
 		os.Exit(1)
 	}
 	defer db.Close()
+
+	templateCache, err := newTemplateCache()
+	if err != nil {
+		logger.Error(err.Error())
+		os.Exit(1)
+	}
+
+	formDecoder := form.NewDecoder()
+
+	sessionManager := scs.New()
+	sessionManager.Store = sqlite3store.New(db)
+	sessionManager.Lifetime = 12 * time.Hour
+	sessionManager.Cookie.Secure = true
+
+	app := application{
+		logger:         logger,
+		templateCache:  templateCache,
+		formDecoder:    formDecoder,
+		sessionManager: sessionManager,
+	}
+
+	srv := &http.Server{
+		Addr:         *addr,
+		ErrorLog:     slog.NewLogLogger(logger.Handler(), slog.LevelError),
+		Handler:      app.routes(),
+		IdleTimeout:  time.Minute,
+		ReadTimeout:  5 * time.Second,
+		WriteTimeout: 10 * time.Second,
+	}
+
+	app.logger.Info(fmt.Sprintf("starting server on http://localhost%s/", *addr))
+
+	err = srv.ListenAndServe()
+	app.logger.Error(err.Error())
+	os.Exit(1)
 }
 
 func openDB(dsn string) (*sql.DB, error) {
