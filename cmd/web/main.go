@@ -14,12 +14,14 @@ import (
 	"github.com/alexedwards/scs/v2"
 	"github.com/go-playground/form/v4"
 	_ "github.com/mattn/go-sqlite3"
+	"github.com/sam-maton/go-web-starter-baseline/internal/models"
 )
 
 type application struct {
 	logger         *slog.Logger
 	templateCache  map[string]*template.Template
 	formDecoder    *form.Decoder
+	users          *models.UserModel
 	sessionManager *scs.SessionManager
 }
 
@@ -56,6 +58,7 @@ func main() {
 		templateCache:  templateCache,
 		formDecoder:    formDecoder,
 		sessionManager: sessionManager,
+		users:          &models.UserModel{DB: db},
 	}
 
 	srv := &http.Server{
