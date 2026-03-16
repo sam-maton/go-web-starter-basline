@@ -7,8 +7,9 @@ import (
 )
 
 type templateData struct {
-	Form  any
-	Flash string
+	Form            any
+	Flash           string
+	IsAuthenticated bool
 }
 
 func humanDate(t time.Time) string {
