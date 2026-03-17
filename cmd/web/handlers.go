@@ -24,6 +24,7 @@ type userLoginForm struct {
 func (app *application) home(w http.ResponseWriter, r *http.Request) {
 
 	data := app.newTemplateData(r)
+	data.IsAuthenticated = app.isAuthenticated(r)
 
 	app.render(w, r, http.StatusOK, "home.html", data)
 }

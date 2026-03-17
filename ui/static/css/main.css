@@ -1,12 +1,75 @@
+:root {
+  --bg-dark: hsl(0 0% 90%);
+  --bg: hsl(0 0% 95%);
+  --bg-light: hsl(0 0% 100%);
+
+  --text-primary: hsl(0 0% 5%);
+  --text-secondary: hsl(0 0% 30%);
+
+  --border: hsl(0 0% 70%);
+  --border-highlight: hsl(0 0% 50%);
+
+  --info-dark: hsl(220 90% 45%);
+  --info: hsl(220 90% 50%);
+  --info-light: hsl(220 90% 55%);
+
+  --error: hsl(0 80% 60%);
+
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  --shadow-md:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+}
+
+:root[data-theme="dark"] {
+  --bg-dark: hsl(0 0% 0%);
+  --bg: hsl(0 0% 5%);
+  --bg-light: hsl(0 0% 10%);
+
+  --text-primary: hsl(0 0% 95%);
+  --text-secondary: hsl(0 0% 70%);
+
+  --border: hsl(0 0% 30%);
+  --border-highlight: hsl(0 0% 50%);
+
+  --info-dark: hsl(220 90% 60%);
+  --info: hsl(220 90% 65%);
+  --info-light: hsl(220 90% 70%);
+
+  --error: hsl(0 80% 65%);
+
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.4), 0 1px 2px -1px rgba(0, 0, 0, 0.4);
+  --shadow-md:
+    0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -2px rgba(0, 0, 0, 0.4);
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   font-size: 18px;
-  font-family: "Ubuntu Mono", monospace;
+  font-family: "Roboto", monospace;
 }
 
 html,
 body {
   height: 100%;
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: var(--bg);
+  box-shadow: var(--shadow);
+}
+
+main {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1rem;
 }
