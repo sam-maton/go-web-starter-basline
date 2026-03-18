@@ -26,6 +26,7 @@ func (app *application) home(w http.ResponseWriter, r *http.Request) {
 	data := app.newTemplateData(r)
 
 	todos, err := app.todos.InProgress()
+
 	if err != nil {
 		app.serverError(w, r, err)
 		return

@@ -2,7 +2,6 @@ package models
 
 import (
 	"database/sql"
-	"errors"
 	"time"
 )
 
@@ -28,13 +27,10 @@ func (m *TodoModel) Insert(title string) error {
 }
 
 func (m *TodoModel) InProgress() ([]Todo, error) {
-	stmt := `SELECT id, title, created FROM todos WHERE completed IS NULL ORDER BY created DESC`
 
-	rows, err := m.DB.Query(stmt)
+	rows, err := m.DB.Query(`SELECT id, title, created FROM todos WHERE completed IS NULL ORDER BY created DESC`)
 	if err != nil {
-		if errors.Is(err, sql.ErrNoRows) {
-			return nil, ErrNoRecord
-		}
+		return nil, err
 	}
 
 	defer rows.Close()
@@ -43,12 +39,13 @@ func (m *TodoModel) InProgress() ([]Todo, error) {
 
 	for rows.Next() {
 		var t Todo
-
-		err := rows.Scan(&t.ID, &t.Title, &t.Created)
+		var createdUnix int64
+		err := rows.Scan(&t.ID, &t.Title, &createdUnix)
 		if err != nil {
 			return nil, err
 		}
 
+		t.Created = time.Unix(createdUnix, 0).UTC()
 		todos = append(todos, t)
 	}
 

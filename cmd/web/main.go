@@ -60,6 +60,7 @@ func main() {
 		formDecoder:    formDecoder,
 		sessionManager: sessionManager,
 		users:          &models.UserModel{DB: db},
+		todos:          &models.TodoModel{DB: db},
 	}
 
 	srv := &http.Server{
