@@ -1,3 +1,5 @@
-{{define "title"}}Home{{end}} {{define "main"}}
+{{define "title"}}Home{{end}} {{define "main"}} {{range .Todos}}
+<h2>{{.Title}}</h2>
+{{end}}
 <p>There's nothing to see here... yet!</p>
 {{end}}

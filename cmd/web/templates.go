@@ -4,12 +4,16 @@ import (
 	"html/template"
 	"path/filepath"
 	"time"
+
+	"github.com/sam-maton/go-web-starter-baseline/internal/models"
 )
 
 type templateData struct {
 	Form            any
 	Flash           string
 	IsAuthenticated bool
+	Todos           []models.Todo
+	Todo            *models.Todo
 }
 
 func humanDate(t time.Time) string {

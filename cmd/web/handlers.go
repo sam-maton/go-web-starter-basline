@@ -24,7 +24,14 @@ type userLoginForm struct {
 func (app *application) home(w http.ResponseWriter, r *http.Request) {
 
 	data := app.newTemplateData(r)
-	data.IsAuthenticated = app.isAuthenticated(r)
+
+	todos, err := app.todos.InProgress()
+	if err != nil {
+		app.serverError(w, r, err)
+		return
+	}
+
+	data.Todos = todos
 
 	app.render(w, r, http.StatusOK, "home.html", data)
 }
@@ -124,7 +131,7 @@ func (app *application) userLoginPost(w http.ResponseWriter, r *http.Request) {
 
 	app.sessionManager.Put(r.Context(), AUTH_USER_KEY, id)
 
-	http.Redirect(w, r, "/dashboard", http.StatusSeeOther)
+	http.Redirect(w, r, "/", http.StatusSeeOther)
 }
 
 func (app *application) userLogoutPost(w http.ResponseWriter, r *http.Request) {

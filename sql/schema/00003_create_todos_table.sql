@@ -4,8 +4,8 @@ CREATE TABLE todos (
     id INTEGER PRIMARY KEY,
     title TEXT NOT NULL,
     created INTEGER NOT NULL,
-    completed INTEGER,
-)
+    completed INTEGER
+);
 -- +goose StatementEnd
 
 -- +goose Down

@@ -22,6 +22,7 @@ type application struct {
 	templateCache  map[string]*template.Template
 	formDecoder    *form.Decoder
 	users          *models.UserModel
+	todos          *models.TodoModel
 	sessionManager *scs.SessionManager
 }
 
