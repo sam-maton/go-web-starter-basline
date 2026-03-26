@@ -6,6 +6,9 @@
   --text-primary: hsl(0 0% 5%);
   --text-secondary: hsl(0 0% 30%);
 
+  --text-inverse-primary: hsl(0 0% 95%);
+  --text-inverse-secondary: hsl(0 0% 70%);
+
   --border: hsl(0 0% 70%);
   --border-highlight: hsl(0 0% 50%);
 
@@ -28,6 +31,9 @@
 
   --text-primary: hsl(0 0% 95%);
   --text-secondary: hsl(0 0% 70%);
+
+  --text-inverse-primary: hsl(0 0% 5%);
+  --text-inverse-secondary: hsl(0 0% 30%);
 
   --border: hsl(0 0% 30%);
   --border-highlight: hsl(0 0% 50%);
@@ -59,6 +65,10 @@ body {
   color: var(--text-primary);
 }
 
+ul {
+  list-style: none;
+}
+
 nav {
   display: flex;
   justify-content: space-between;
@@ -72,4 +82,34 @@ main {
   max-width: 800px;
   margin: 2rem auto;
   padding: 0 1rem;
+}
+
+.todos {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.todos-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: var(--bg-light);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+
+button.delete {
+  background-color: transparent;
+  border: none;
+  color: var(--error);
+  cursor: pointer;
+}
+
+button.complete {
+  background-color: transparent;
+  border: none;
+  color: var(--info);
+  cursor: pointer;
 }

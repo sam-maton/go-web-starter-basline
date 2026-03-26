@@ -1,5 +1,15 @@
-{{define "title"}}Home{{end}} {{define "main"}} {{range .Todos}}
-<h2>{{.Title}}</h2>
-{{end}}
-<p>There's nothing to see here... yet!</p>
+{{define "title"}}Home{{end}} {{define "main"}}
+<ul class="todos">
+  {{range .Todos}}
+  <li class="todos-item">
+    <span>{{.Title}}</span>
+    <span>{{humanDate .Created}}</span>
+    <span>{{humanDate .Completed}}</span>
+    <div>
+      <button class="delete">Delete</button>
+      <button class="complete">Complete</button>
+    </div>
+  </li>
+  {{end}}
+</ul>
 {{end}}
