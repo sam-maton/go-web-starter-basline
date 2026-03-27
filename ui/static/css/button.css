@@ -1,0 +1,41 @@
+.button-container {
+  display: flex;
+  gap: 0.5rem;
+}
+
+button {
+  padding: 0.5rem;
+  background-color: transparent;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    background-color: var(--bg);
+  }
+}
+
+button.delete {
+  border: none;
+  color: var(--error);
+  cursor: pointer;
+
+  &:hover {
+    background-color: color-mix(in srgb, var(--error-light), transparent 70%);
+  }
+
+  &:active {
+    background-color: color-mix(in srgb, var(--error-dark), transparent 70%);
+  }
+}
+
+button.complete {
+  border: none;
+  color: var(--info);
+  cursor: pointer;
+}
+
+button.icon {
+  border-radius: 999px;
+}

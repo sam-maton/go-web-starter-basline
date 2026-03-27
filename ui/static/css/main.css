@@ -16,7 +16,9 @@
   --info: hsl(220 90% 50%);
   --info-light: hsl(220 90% 55%);
 
-  --error: hsl(0 80% 60%);
+  --error-dark: hsl(0 80% 40%);
+  --error: hsl(0 80% 50%);
+  --error-light: hsl(0 80% 60%);
 
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
@@ -100,16 +102,17 @@ main {
   border-radius: 4px;
 }
 
-button.delete {
-  background-color: transparent;
-  border: none;
-  color: var(--error);
-  cursor: pointer;
+.icon-sm {
+  width: 16px;
+  height: 16px;
 }
 
-button.complete {
-  background-color: transparent;
-  border: none;
-  color: var(--info);
-  cursor: pointer;
+.icon-md {
+  width: 24px;
+  height: 24px;
+}
+
+.icon-lg {
+  width: 32px;
+  height: 32px;
 }

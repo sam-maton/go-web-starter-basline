@@ -5,8 +5,12 @@
     <span>{{.Title}}</span>
     <span>{{humanDate .Created}}</span>
     <span>{{humanDate .Completed}}</span>
-    <div>
-      <button class="delete">Delete</button>
+    <div class="button-container">
+      <button class="icon delete" aria-label="Delete todo">
+        <svg class="icon-md" aria-hidden="true">
+          <use href="/static/icons/sprite.svg#trash"></use>
+        </svg>
+      </button>
       <button class="complete">Complete</button>
     </div>
   </li>
