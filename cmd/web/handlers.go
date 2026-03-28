@@ -2,7 +2,9 @@ package main
 
 import (
 	"errors"
+	"fmt"
 	"net/http"
+	"strconv"
 
 	"github.com/sam-maton/go-web-starter-baseline/internal/models"
 	"github.com/sam-maton/go-web-starter-baseline/internal/validator"
@@ -35,6 +37,19 @@ func (app *application) home(w http.ResponseWriter, r *http.Request) {
 	data.Todos = todos
 
 	app.render(w, r, http.StatusOK, "home.html", data)
+}
+
+func (app *application) todoDeletePost(w http.ResponseWriter, r *http.Request) {
+	id, err := strconv.Atoi(r.PathValue("id"))
+	if err != nil || id < 1 {
+		app.notFound(w)
+	}
+
+	fmt.Println(id)
+
+	app.sessionManager.Put(r.Context(), FLASH_KEY, "Todo was successfully deleted!")
+
+	http.Redirect(w, r, "/", http.StatusSeeOther)
 }
 
 func (app *application) userSignup(w http.ResponseWriter, r *http.Request) {

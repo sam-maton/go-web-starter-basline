@@ -25,6 +25,10 @@ func (app *application) clientError(w http.ResponseWriter, status int) {
 	http.Error(w, http.StatusText(status), status)
 }
 
+func (app *application) notFound(w http.ResponseWriter) {
+	app.clientError(w, http.StatusNotFound)
+}
+
 func (app *application) newTemplateData(r *http.Request) templateData {
 	return templateData{
 		Flash: app.sessionManager.PopString(r.Context(), FLASH_KEY),
