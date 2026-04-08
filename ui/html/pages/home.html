@@ -1,4 +1,9 @@
-{{define "title"}}Home{{end}} {{define "main"}}
+{{define "title"}}Home{{end}} {{define "main"}} {{if .IsAuthenticated}}
+<form class="todo-create-form" action="/todo/create" method="post">
+  <input type="text" name="title" placeholder="Enter todo title" required />
+  <button class="info" type="submit">Add Todo</button>
+</form>
+{{end}}
 <ul class="todos">
   {{range .Todos}}
   <li class="todos-item">
@@ -13,7 +18,7 @@
           </svg>
         </button>
       </form>
-      <button class="complete">Complete</button>
+      <button class="info">Complete</button>
     </div>
   </li>
   {{end}}

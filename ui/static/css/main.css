@@ -20,6 +20,10 @@
   --error: hsl(0 80% 50%);
   --error-light: hsl(0 80% 60%);
 
+  --success-dark: hsl(120 80% 30%);
+  --success: hsl(120 80% 40%);
+  --success-light: hsl(120 80% 50%);
+
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
   --shadow-md:
@@ -27,9 +31,9 @@
 }
 
 :root[data-theme="dark"] {
-  --bg-dark: hsl(0 0% 0%);
-  --bg: hsl(0 0% 5%);
-  --bg-light: hsl(0 0% 10%);
+  --bg-dark: hsl(0 0% 5%);
+  --bg: hsl(0 0% 10%);
+  --bg-light: hsl(0 0% 15%);
 
   --text-primary: hsl(0 0% 95%);
   --text-secondary: hsl(0 0% 70%);
@@ -44,7 +48,9 @@
   --info: hsl(220 90% 65%);
   --info-light: hsl(220 90% 70%);
 
-  --error: hsl(0 80% 65%);
+  --error-dark: hsl(0 80% 55%);
+  --error: hsl(0 80% 60%);
+  --error-light: hsl(0 80% 65%);
 
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
   --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.4), 0 1px 2px -1px rgba(0, 0, 0, 0.4);
@@ -100,6 +106,16 @@ main {
   background-color: var(--bg-light);
   border: 1px solid var(--border);
   border-radius: 4px;
+}
+
+.todo-create-form {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+
+  input {
+    padding: 0.5rem;
+  }
 }
 
 .icon-sm {

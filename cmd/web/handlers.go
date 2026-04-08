@@ -39,6 +39,18 @@ func (app *application) home(w http.ResponseWriter, r *http.Request) {
 	app.render(w, r, http.StatusOK, "home.html", data)
 }
 
+func (app *application) todoCreatePost(w http.ResponseWriter, r *http.Request) {
+	err := app.todos.Insert("New Todo")
+	if err != nil {
+		app.serverError(w, r, err)
+		return
+	}
+
+	app.sessionManager.Put(r.Context(), FLASH_KEY, "Todo was successfully created!")
+
+	http.Redirect(w, r, "/", http.StatusSeeOther)
+}
+
 func (app *application) todoDeletePost(w http.ResponseWriter, r *http.Request) {
 	id, err := strconv.Atoi(r.PathValue("id"))
 	if err != nil || id < 1 {

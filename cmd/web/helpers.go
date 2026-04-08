@@ -31,7 +31,8 @@ func (app *application) notFound(w http.ResponseWriter) {
 
 func (app *application) newTemplateData(r *http.Request) templateData {
 	return templateData{
-		Flash: app.sessionManager.PopString(r.Context(), FLASH_KEY),
+		Flash:           app.sessionManager.PopString(r.Context(), FLASH_KEY),
+		IsAuthenticated: app.isAuthenticated(r),
 	}
 }
 

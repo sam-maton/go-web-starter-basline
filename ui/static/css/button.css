@@ -30,10 +30,32 @@ button.delete {
   }
 }
 
-button.complete {
+button.info {
   border: none;
   color: var(--info);
   cursor: pointer;
+
+  &:hover {
+    background-color: color-mix(in srgb, var(--info-light), transparent 90%);
+  }
+
+  &:active {
+    background-color: color-mix(in srgb, var(--info-dark), transparent 80%);
+  }
+}
+
+button.success {
+  border: none;
+  color: var(--success);
+  cursor: pointer;
+
+  &:hover {
+    background-color: color-mix(in srgb, var(--success-light), transparent 90%);
+  }
+
+  &:active {
+    background-color: color-mix(in srgb, var(--success-dark), transparent 80%);
+  }
 }
 
 button.icon {
