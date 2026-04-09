@@ -1,6 +1,12 @@
 {{define "title"}}Home{{end}} {{define "main"}} {{if .IsAuthenticated}}
-<form class="todo-create-form" action="/todo/create" method="post">
-  <input type="text" name="title" placeholder="Enter todo title" required />
+<form class="todo-create" action="/todo/create" method="post">
+  <input
+    type="text"
+    name="title"
+    placeholder="Enter todo title"
+    required
+    minlength="1"
+  />
   <button class="info" type="submit">Add Todo</button>
 </form>
 {{end}}

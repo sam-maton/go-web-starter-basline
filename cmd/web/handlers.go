@@ -23,6 +23,11 @@ type userLoginForm struct {
 	validator.Validator `form:"-"`
 }
 
+type todoCreateForm struct {
+	Title               string `form:"title"`
+	validator.Validator `form:"-"`
+}
+
 func (app *application) home(w http.ResponseWriter, r *http.Request) {
 
 	data := app.newTemplateData(r)
@@ -40,7 +45,16 @@ func (app *application) home(w http.ResponseWriter, r *http.Request) {
 }
 
 func (app *application) todoCreatePost(w http.ResponseWriter, r *http.Request) {
-	err := app.todos.Insert("New Todo")
+
+	var form todoCreateForm
+
+	err := app.decodePostForm(r, &form)
+	if err != nil {
+		app.clientError(w, http.StatusBadRequest)
+		return
+	}
+
+	err = app.todos.Insert(form.Title)
 	if err != nil {
 		app.serverError(w, r, err)
 		return

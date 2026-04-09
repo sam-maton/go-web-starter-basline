@@ -108,16 +108,6 @@ main {
   border-radius: 4px;
 }
 
-.todo-create-form {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 1rem;
-
-  input {
-    padding: 0.5rem;
-  }
-}
-
 .icon-sm {
   width: 16px;
   height: 16px;
