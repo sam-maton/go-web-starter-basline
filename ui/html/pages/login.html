@@ -1,16 +1,16 @@
 {{define "title"}}Login{{end}} {{define "main"}}
-<form action="/user/login" method="POST" novalidate>
+<form class="user" action="/user/login" method="POST" novalidate>
   {{range .Form.NonFieldErrors}}
   <div class="error">{{.}}</div>
   {{end}}
-  <div>
+  <div class="user__field">
     <label for="login-email">Email:</label>
     {{with .Form.FieldErrors.email}}
     <label for="login-email" class="error">{{.}}</label>
     {{end}}
     <input id="login-email" type="email" name="email" value="{{.Form.Email}}" />
   </div>
-  <div>
+  <div class="user__field">
     <label for="login-password">Password:</label>
     {{with .Form.FieldErrors.password}}
     <label for="login-password" class="error">{{.}}</label>
