@@ -28,7 +28,7 @@ func (m *TodoModel) Insert(title string) error {
 
 func (m *TodoModel) InProgress() ([]Todo, error) {
 
-	rows, err := m.DB.Query(`SELECT id, title, created FROM todos WHERE completed = FALSE ORDER BY created DESC`)
+	rows, err := m.DB.Query(`SELECT id, title, created, completed FROM todos WHERE completed = FALSE ORDER BY created DESC`)
 	if err != nil {
 		return nil, err
 	}
@@ -40,7 +40,7 @@ func (m *TodoModel) InProgress() ([]Todo, error) {
 	for rows.Next() {
 		var t Todo
 		var createdUnix int64
-		err := rows.Scan(&t.ID, &t.Title, &createdUnix)
+		err := rows.Scan(&t.ID, &t.Title, &createdUnix, &t.Completed)
 		if err != nil {
 			return nil, err
 		}
