@@ -15,13 +15,14 @@
   <li class="todos-item">
     <span>{{.Title}}</span>
     <span>{{humanDate .Created}}</span>
-    <span>{{if .Completed}}Completed{{else}}In progress{{end}}</span>
+    <span role="status">{{if .Completed}}Completed{{else}}In progress{{end}}</span>
     <div class="button-container">
       <form action="/todo/complete/{{.ID}}" method="post">
         <button
           class="info"
           type="submit"
           aria-label="Mark todo as complete: {{.Title}}"
+          {{if .Completed}}disabled{{end}}
         >
           Complete
         </button>
