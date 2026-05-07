@@ -17,9 +17,9 @@ type TodoModel struct {
 }
 
 func (m *TodoModel) Insert(title string) error {
-	stmt := `INSERT INTO todos (title, created, completed) VALUES(?, ?, ?)`
+	stmt := `INSERT INTO todos (title, created) VALUES(?, ?)`
 
-	_, err := m.DB.Exec(stmt, title, time.Now().UTC().Unix(), false)
+	_, err := m.DB.Exec(stmt, title, time.Now().UTC().Unix())
 	if err != nil {
 		return err
 	}
