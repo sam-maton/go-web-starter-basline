@@ -9,7 +9,7 @@ type Todo struct {
 	ID        int
 	Title     string
 	Created   time.Time
-	Completed time.Time
+	Completed bool
 }
 
 type TodoModel struct {
@@ -17,9 +17,9 @@ type TodoModel struct {
 }
 
 func (m *TodoModel) Insert(title string) error {
-	stmt := `INSERT INTO todos (title, created) VALUES(?, ?)`
+	stmt := `INSERT INTO todos (title, created, completed) VALUES(?, ?, ?)`
 
-	_, err := m.DB.Exec(stmt, title, time.Now().UTC().Unix())
+	_, err := m.DB.Exec(stmt, title, time.Now().UTC().Unix(), false)
 	if err != nil {
 		return err
 	}
@@ -28,7 +28,7 @@ func (m *TodoModel) Insert(title string) error {
 
 func (m *TodoModel) InProgress() ([]Todo, error) {
 
-	rows, err := m.DB.Query(`SELECT id, title, created FROM todos WHERE completed IS NULL ORDER BY created DESC`)
+	rows, err := m.DB.Query(`SELECT id, title, created FROM todos WHERE completed = FALSE ORDER BY created DESC`)
 	if err != nil {
 		return nil, err
 	}
@@ -54,4 +54,23 @@ func (m *TodoModel) InProgress() ([]Todo, error) {
 	}
 
 	return todos, nil
+}
+
+func (m *TodoModel) Complete(id int) error {
+	stmt := `UPDATE todos SET completed = TRUE WHERE id = ?`
+
+	result, err := m.DB.Exec(stmt, id)
+	if err != nil {
+		return err
+	}
+
+	rowsAffected, err := result.RowsAffected()
+	if err != nil {
+		return err
+	}
+	if rowsAffected == 0 {
+		return ErrNoRecord
+	}
+
+	return nil
 }
