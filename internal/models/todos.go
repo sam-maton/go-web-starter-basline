@@ -57,7 +57,7 @@ func (m *TodoModel) InProgress() ([]Todo, error) {
 }
 
 func (m *TodoModel) Complete(id int) error {
-	stmt := `UPDATE todos SET completed = TRUE WHERE id = ?`
+	stmt := `UPDATE todos SET completed = TRUE WHERE id = ? AND completed = FALSE`
 
 	result, err := m.DB.Exec(stmt, id)
 	if err != nil {
