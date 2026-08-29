@@ -1,0 +1,314 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: "JetBrains Mono", monospace;
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+/* TYPOGRAPHY */
+
+h1 {
+  line-height: 42px;
+}
+
+h2 {
+  line-height: 32px;
+}
+
+h3 {
+  line-height: 24px;
+}
+
+h4 {
+  line-height: 22px;
+}
+
+h5 {
+  line-height: 18px;
+}
+
+h6 {
+  line-height: 14px;
+}
+
+h1,
+h2 {
+  margin-bottom: 0.5rem;
+}
+
+h3,
+h4,
+h5,
+h6 {
+  margin-bottom: 0.25rem;
+}
+
+h1[data-highlight],
+h2[data-highlight] {
+  border-left: 4px solid var(--container-accent);
+  padding-left: 0.3rem;
+  border-radius: 3px;
+}
+
+h3[data-highlight],
+h4[data-highlight],
+h5[data-highlight],
+h6[data-highlight] {
+  color: var(--text-accent);
+}
+
+pre {
+  text-align: start;
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background-color: var(--surface-accent);
+  padding: 0 1.5rem;
+}
+
+/* LINKS */
+a {
+  text-decoration: none;
+  color: var(--text-accent);
+}
+
+a:hover {
+  text-decoration: underline currentColor;
+}
+
+a[data-button] {
+  background-color: transparent;
+  color: var(--text);
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  transition: background-color 0.2s ease;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+a[data-button]:hover {
+  background-color: var(--transparent-container-accent-hover);
+  text-decoration: none;
+}
+
+a[data-button]:active {
+  background-color: var(--transparent-container-accent-active);
+  text-decoration: none;
+}
+
+/* BUTTONS */
+
+button {
+  font-family: inherit;
+  background-color: var(--container-accent);
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  border: none;
+  color: var(--text-inverse);
+  font-size: 1rem;
+  transition: background-color 0.2s ease;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  user-select: none;
+  height: 40px;
+}
+
+button:hover {
+  background-color: var(--container-accent-hover);
+}
+
+button:active {
+  background-color: var(--container-accent-active);
+}
+
+button:focus-visible {
+  outline-offset: 2px;
+  outline-color: var(--outline-accent);
+}
+
+button:disabled {
+  cursor: not-allowed;
+  background-color: var(--container-accent-disabled);
+  color: var(--text-inverse-disabled);
+}
+
+button[data-text] {
+  background-color: transparent;
+  color: var(--text);
+}
+
+button[data-text]:hover {
+  background-color: var(--transparent-container-accent-hover);
+}
+
+button[data-text]:active {
+  background-color: var(--transparent-container-accent-active);
+}
+
+button[data-text]:disabled {
+  cursor: not-allowed;
+  background-color: transparent;
+  color: var(--text-disabled);
+}
+
+button[data-outline] {
+  background: transparent;
+  color: var(--text);
+  border: 2px solid var(--outline);
+}
+
+button[data-outline]:hover {
+  background-color: var(--transparent-container-accent-hover);
+}
+
+button[data-outline]:active {
+  background-color: var(--transparent-container-accent-active);
+}
+
+button[data-outline]:disabled {
+  cursor: not-allowed;
+  background-color: transparent;
+  color: var(--text-disabled);
+  border-color: var(--outline-disabled);
+}
+
+/* ICON BUTTON */
+button[data-icon] {
+  background: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 999px;
+  box-sizing: content-box;
+  padding: 0.75rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  color: var(--text);
+}
+
+button[data-icon]:hover {
+  background-color: var(--transparent-container-accent-hover);
+}
+
+button[data-icon]:active {
+  background-color: var(--transparent-container-accent-active);
+}
+
+button[data-icon]:disabled {
+  cursor: not-allowed;
+  background-color: transparent;
+  color: var(--text-disabled);
+}
+
+/* LISTS */
+nav > ul,
+nav > ol {
+  list-style: none;
+  padding: 0;
+}
+
+/* IPUTS */
+
+fieldset {
+  border: 1px solid var(--border);
+  border-radius: 0.25rem;
+}
+
+input,
+textarea,
+select {
+  padding: 0.5rem;
+  border: 1.5px solid var(--border);
+  border-radius: 0.25rem;
+  background-color: var(--surface-high);
+  font-size: 16px;
+  max-width: 100%;
+  min-width: 10rem;
+  height: 38px;
+}
+
+select[multiple],
+textarea {
+  height: auto;
+}
+
+input:hover,
+textarea:hover,
+select:hover {
+  border: 1.5px solid var(--border-hover);
+}
+
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline-color: var(--outline-accent);
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  accent-color: var(--container-accent);
+  height: auto;
+  min-width: auto;
+}
+
+input[type="checkbox"]:hover,
+input[type="radio"]:hover {
+  accent-color: var(--container-accent-hover);
+}
+
+option {
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+  margin-bottom: 0.25rem;
+}
+
+/* TABLE */
+
+table {
+  border-collapse: collapse;
+  border: 2px solid var(--border);
+}
+
+tbody th,
+thead {
+  background-color: var(--surface-accent);
+}
+
+th,
+td {
+  padding: 5px;
+  border: 1px solid var(--border);
+}
+
+/* CONTENT BOXES */
+
+dialog {
+  margin: auto;
+  padding: 1.5rem;
+  border: none;
+  border-radius: 0.25rem;
+  background-color: var(--surface-high);
+  box-shadow: var(--shadow);
+}
+
+dialog:not([popover])::backdrop {
+  backdrop-filter: blur(4px);
+}
+
+details {
+  background-color: var(--surface-accent);
+  padding: 1rem;
+  border-radius: 0.25rem;
+}

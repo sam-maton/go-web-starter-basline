@@ -1,0 +1,138 @@
+:root {
+  color-scheme: light dark;
+
+  --primary-hue: 220;
+
+  --solid-hover-opacity: 10%;
+  --solid-active-opacity: 20%;
+
+  --transparent-hover-opacity: 90%;
+  --transparent-active-opacity: 80%;
+
+  --bg: light-dark(
+    hsl(var(--primary-hue), 10%, 90%),
+    hsl(var(--primary-hue), 10%, 10%)
+  );
+
+  --surface: light-dark(
+    hsl(var(--primary-hue), 10%, 95%),
+    hsl(var(--primary-hue), 10%, 15%)
+  );
+
+  --surface-high: light-dark(
+    hsl(var(--primary-hue), 10%, 100%),
+    hsl(var(--primary-hue), 10%, 20%)
+  );
+
+  --surface-accent: light-dark(
+    hsl(var(--primary-hue), 25%, 90%),
+    hsl(var(--primary-hue), 20%, 20%)
+  );
+
+  --backdrop: light-dark(
+    hsl(var(--primary-hue), 0%, 20%),
+    hsl(var(--primary-hue), 0%, 80%)
+  );
+
+  --backdrop-resting: color-mix(in hsl, var(--backdrop), transparent 20%);
+
+  --border: light-dark(
+    hsl(var(--primary-hue), 10%, 70%),
+    hsl(var(--primary-hue), 10%, 40%)
+  );
+
+  --border-hover: light-dark(
+    hsl(var(--primary-hue), 10%, 40%),
+    hsl(var(--primary-hue), 10%, 70%)
+  );
+
+  --outline: light-dark(
+    hsl(var(--primary-hue), 5%, 30%),
+    hsl(var(--primary-hue), 5%, 70%)
+  );
+
+  --outline-disabled: light-dark(
+    hsl(var(--primary-hue), 5%, 65%),
+    hsl(var(--primary-hue), 5%, 50%)
+  );
+
+  --outline-accent: light-dark(
+    hsl(var(--primary-hue), 85%, 55%),
+    hsl(var(--primary-hue), 80%, 70%)
+  );
+
+  --text: light-dark(
+    hsl(var(--primary-hue), 10%, 10%),
+    hsl(var(--primary-hue), 10%, 95%)
+  );
+
+  --text-disabled: light-dark(
+    hsl(var(--primary-hue), 0%, 40%),
+    hsl(var(--primary-hue), 0%, 65%)
+  );
+
+  --text-inverse: light-dark(
+    hsl(var(--primary-hue), 10%, 95%),
+    hsl(var(--primary-hue), 10%, 15%)
+  );
+
+  --text-inverse-disabled: light-dark(
+    hsl(var(--primary-hue), 0%, 35%),
+    hsl(var(--primary-hue), 0%, 65%)
+  );
+
+  --text-accent: light-dark(
+    hsl(var(--primary-hue), 85%, 35%),
+    hsl(var(--primary-hue), 80%, 70%)
+  );
+
+  --text-accent-inverse: light-dark(
+    hsl(var(--primary-hue), 85%, 60%),
+    hsl(var(--primary-hue), 80%, 45%)
+  );
+
+  --container-accent: light-dark(
+    hsl(var(--primary-hue), 80%, 45%),
+    hsl(var(--primary-hue), 80%, 70%)
+  );
+
+  --container-accent-hover: color-mix(
+    in hsl,
+    var(--container-accent),
+    transparent var(--solid-hover-opacity)
+  );
+
+  --container-accent-active: color-mix(
+    in hsl,
+    var(--container-accent),
+    transparent var(--solid-active-opacity)
+  );
+
+  --container-accent-disabled: light-dark(
+    hsl(var(--primary-hue), 5%, 80%),
+    hsl(var(--primary-hue), 5%, 30%)
+  );
+
+  --transparent-container-accent-hover: color-mix(
+    in hsl,
+    var(--container-accent),
+    transparent var(--transparent-hover-opacity)
+  );
+
+  --transparent-container-accent-active: color-mix(
+    in hsl,
+    var(--container-accent),
+    transparent var(--transparent-active-opacity)
+  );
+
+  --shadow:
+    0 3px 14px 2px #0000001f, 0 8px 10px 1px #00000024, 0 5px 5px -3px #00000033;
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+}

@@ -15,25 +15,29 @@
   <li class="todos-item">
     <span>{{.Title}}</span>
     <span>{{humanDate .Created}}</span>
-    <span role="status">{{if .Completed}}Completed{{else}}In progress{{end}}</span>
+    <span role="status"
+      >{{if .Completed}}Completed{{else}}In progress{{end}}</span
+    >
     <div class="button-container">
       <form action="/todo/complete/{{.ID}}" method="post">
         <button
           class="info"
           type="submit"
           aria-label="Mark todo as complete: {{.Title}}"
-          {{if .Completed}}disabled{{end}}
+          {{if
+          .Completed}}disabled{{end}}
         >
           Complete
         </button>
       </form>
       <form action="/todo/delete/{{.ID}}" method="post">
-        <button class="icon delete" aria-label="Delete todo">
+        <button data-icon aria-label="Delete todo">
           <svg class="icon-md" aria-hidden="true">
             <use href="/static/icons/sprite.svg#trash"></use>
           </svg>
         </button>
       </form>
+      <button data-text class="info">Complete</button>
     </div>
   </li>
   {{end}}
