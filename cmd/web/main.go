@@ -27,7 +27,7 @@ type application struct {
 }
 
 func main() {
-	addr := flag.String("addr", ":4321", "HTTP network address")
+	addr := flag.String("addr", ":1234", "HTTP network address")
 	dsn := flag.String("dsn", "./sql/database.db", "SQLite db file location")
 
 	flag.Parse()

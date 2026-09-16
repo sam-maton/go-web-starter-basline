@@ -3,11 +3,11 @@
 
   --primary-hue: 220;
 
-  --solid-hover-opacity: 10%;
-  --solid-active-opacity: 20%;
+  --solid-hover-opacity: 20%;
+  --solid-active-opacity: 40%;
 
-  --transparent-hover-opacity: 90%;
-  --transparent-active-opacity: 80%;
+  --transparent-hover-opacity: 80%;
+  --transparent-active-opacity: 70%;
 
   --bg: light-dark(
     hsl(var(--primary-hue), 10%, 90%),

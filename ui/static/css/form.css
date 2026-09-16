@@ -1,14 +1,3 @@
-input {
-  padding: 0.2rem;
-  border: 2px solid var(--border);
-  border-radius: 4px;
-
-  &:focus {
-    outline: none;
-    border-color: var(--info);
-  }
-}
-
 form.user {
   display: flex;
   flex-direction: column;

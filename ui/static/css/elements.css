@@ -107,6 +107,11 @@ a[data-button]:active {
   text-decoration: none;
 }
 
+a:focus-visible {
+  outline-offset: 2px;
+  outline-color: var(--outline-accent);
+}
+
 /* BUTTONS */
 
 button {
@@ -311,4 +316,9 @@ details {
   background-color: var(--surface-accent);
   padding: 1rem;
   border-radius: 0.25rem;
+}
+
+summary:focus-visible {
+  outline-offset: 2px;
+  outline-color: var(--outline-accent);
 }

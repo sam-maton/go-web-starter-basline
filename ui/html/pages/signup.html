@@ -1,33 +1,28 @@
 {{define "title"}}Signup{{end}} {{define "main"}}
 <form class="user" action="/user/signup" method="POST" novalidate>
   <div class="user__field">
-    <label>
-      Name:
-      <input id="signup-name" type="text" name="name" value="{{.Form.Name}}" />
-    </label>
+    <label for="signup-name"> Name: </label>
+    <input id="signup-name" type="text" name="name" value="{{.Form.Name}}" />
     {{with .Form.FieldErrors.name}}
     <label for="signup-name" class="error">{{.}}</label>
     {{end}}
   </div>
   <div class="user__field">
-    <label
-      >Email:
-      <input
-        id="signup-email"
-        type="email"
-        name="email"
-        value="{{.Form.Email}}"
-      />
-    </label>
+    <label for="signup-email">Email: </label>
+    <input
+      id="signup-email"
+      type="email"
+      name="email"
+      value="{{.Form.Email}}"
+    />
+
     {{with .Form.FieldErrors.email}}
     <label for="signup-email" class="error">{{.}}</label>
     {{end}}
   </div>
   <div class="user__field">
-    <label
-      >Password:
-      <input id="signup-password" type="password" name="password" />
-    </label>
+    <label for="signup-password">Password: </label>
+    <input id="signup-password" type="password" name="password" />
     {{with .Form.FieldErrors.password}}
     <label for="signup-password" class="error">{{.}}</label>
     {{end}}
