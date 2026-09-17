@@ -56,3 +56,11 @@ func PermittedValue[T comparable](value T, permittedValues ...T) bool {
 func Matches(value string, rx *regexp.Regexp) bool {
 	return rx.MatchString(value)
 }
+
+func (v Validator) IsInvalid(field string) string {
+	if _, exists := v.FieldErrors[field]; exists {
+		return "true"
+	}
+
+	return "false"
+}

@@ -1,7 +1,7 @@
 {{define "title"}}Login{{end}} {{define "main"}}
 <form class="user" action="/user/login" method="POST">
   {{range .Form.NonFieldErrors}}
-  <div class="error">{{.}}</div>
+  <output data-error>{{.}}</output>
   {{end}}
   <div class="user__field">
     <label for="login-email">Email:</label>
@@ -10,7 +10,7 @@
       type="email"
       name="email"
       value="{{.Form.Email}}"
-      required
+      aria-invalid='{{.Form.IsInvalid "email"}}'
     />
     {{with .Form.FieldErrors.email}}
     <output for="login-email" data-error>{{.}}</output>
@@ -18,7 +18,12 @@
   </div>
   <div class="user__field">
     <label for="login-password">Password:</label>
-    <input id="login-password" type="password" name="password" required />
+    <input
+      id="login-password"
+      type="password"
+      name="password"
+      aria-invalid='{{.Form.IsInvalid "password"}}'
+    />
     {{with .Form.FieldErrors.password}}
     <output for="login-password" data-error>{{.}}</output>
     {{end}}

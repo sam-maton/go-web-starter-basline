@@ -1,5 +1,5 @@
 {{define "title"}}Signup{{end}} {{define "main"}}
-<form class="user" action="/user/signup" method="POST">
+<form class="user" action="/user/signup" method="POST" novalidate>
   <div class="user__field">
     <label for="signup-name"> Name: </label>
     <input
@@ -8,6 +8,7 @@
       name="name"
       value="{{.Form.Name}}"
       required
+      aria-invalid='{{.Form.IsInvalid "name"}}'
     />
     {{with .Form.FieldErrors.name}}
     <output for="signup-name" data-error>{{.}}</output>
@@ -21,17 +22,24 @@
       name="email"
       value="{{.Form.Email}}"
       required
+      aria-invalid='{{.Form.IsInvalid "email"}}'
     />
 
     {{with .Form.FieldErrors.email}}
-    <label for="signup-email" class="error">{{.}}</label>
+    <output for="signup-email" data-error>{{.}}</output>
     {{end}}
   </div>
   <div class="user__field">
     <label for="signup-password">Password: </label>
-    <input id="signup-password" type="password" name="password" required />
+    <input
+      id="signup-password"
+      type="password"
+      name="password"
+      required
+      aria-invalid='{{.Form.IsInvalid "password"}}'
+    />
     {{with .Form.FieldErrors.password}}
-    <label for="signup-password" class="error">{{.}}</label>
+    <output for="signup-password" data-error>{{.}}</output>
     {{end}}
   </div>
   <div>
