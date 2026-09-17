@@ -273,10 +273,23 @@ input[type="radio"]:hover {
   accent-color: var(--container-accent-hover);
 }
 
+input:user-invalid,
+input[aria-invalid="true"],
+select:user-invalid,
+select[aria-invalid="true"],
+textarea:user-invalid,
+textarea[aria-invalid="true"] {
+  border: 2px solid var(--outline-error);
+}
+
 option {
   padding: 0.25rem;
   border-radius: 0.25rem;
   margin-bottom: 0.25rem;
+}
+
+output[data-error] {
+  color: var(--text-error);
 }
 
 /* TABLE */

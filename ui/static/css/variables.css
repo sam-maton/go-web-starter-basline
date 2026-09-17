@@ -2,6 +2,9 @@
   color-scheme: light dark;
 
   --primary-hue: 220;
+  --error-hue: 0;
+  --success-hue: 120;
+  --warning-hue: 60;
 
   --solid-hover-opacity: 20%;
   --solid-active-opacity: 40%;
@@ -61,19 +64,24 @@
     hsl(var(--primary-hue), 80%, 70%)
   );
 
+  --outline-error: light-dark(
+    hsl(var(--error-hue), 85%, 45%),
+    hsl(var(--error-hue), 80%, 70%)
+  );
+
   --text: light-dark(
     hsl(var(--primary-hue), 10%, 10%),
     hsl(var(--primary-hue), 10%, 95%)
   );
 
-  --text-disabled: light-dark(
-    hsl(var(--primary-hue), 0%, 40%),
-    hsl(var(--primary-hue), 0%, 65%)
-  );
-
   --text-inverse: light-dark(
     hsl(var(--primary-hue), 10%, 95%),
     hsl(var(--primary-hue), 10%, 15%)
+  );
+
+  --text-disabled: light-dark(
+    hsl(var(--primary-hue), 0%, 40%),
+    hsl(var(--primary-hue), 0%, 65%)
   );
 
   --text-inverse-disabled: light-dark(
@@ -89,6 +97,11 @@
   --text-accent-inverse: light-dark(
     hsl(var(--primary-hue), 85%, 60%),
     hsl(var(--primary-hue), 80%, 45%)
+  );
+
+  --text-error: light-dark(
+    hsl(var(--error-hue), 85%, 45%),
+    hsl(var(--error-hue), 80%, 70%)
   );
 
   --container-accent: light-dark(

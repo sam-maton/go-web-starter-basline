@@ -1,10 +1,16 @@
 {{define "title"}}Signup{{end}} {{define "main"}}
-<form class="user" action="/user/signup" method="POST" novalidate>
+<form class="user" action="/user/signup" method="POST">
   <div class="user__field">
     <label for="signup-name"> Name: </label>
-    <input id="signup-name" type="text" name="name" value="{{.Form.Name}}" />
+    <input
+      id="signup-name"
+      type="text"
+      name="name"
+      value="{{.Form.Name}}"
+      required
+    />
     {{with .Form.FieldErrors.name}}
-    <label for="signup-name" class="error">{{.}}</label>
+    <output for="signup-name" data-error>{{.}}</output>
     {{end}}
   </div>
   <div class="user__field">
@@ -14,6 +20,7 @@
       type="email"
       name="email"
       value="{{.Form.Email}}"
+      required
     />
 
     {{with .Form.FieldErrors.email}}
@@ -22,13 +29,13 @@
   </div>
   <div class="user__field">
     <label for="signup-password">Password: </label>
-    <input id="signup-password" type="password" name="password" />
+    <input id="signup-password" type="password" name="password" required />
     {{with .Form.FieldErrors.password}}
     <label for="signup-password" class="error">{{.}}</label>
     {{end}}
   </div>
   <div>
-    <input type="submit" value="Signup" />
+    <button type="submit">Signup</button>
   </div>
 </form>
 {{end}}
