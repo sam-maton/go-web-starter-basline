@@ -273,6 +273,15 @@ input[type="radio"]:hover {
   accent-color: var(--container-accent-hover);
 }
 
+input:user-valid,
+input[aria-valid="true"],
+select:user-valid,
+select[aria-valid="true"],
+textarea:user-valid,
+textarea[aria-valid="true"] {
+  border: 2px solid var(--outline-success);
+}
+
 input:user-invalid,
 input[aria-invalid="true"],
 select:user-invalid,
@@ -286,6 +295,10 @@ option {
   padding: 0.25rem;
   border-radius: 0.25rem;
   margin-bottom: 0.25rem;
+}
+
+output[data-success] {
+  color: var(--text-success);
 }
 
 output[data-error] {

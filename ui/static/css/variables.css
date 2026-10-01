@@ -64,6 +64,11 @@
     hsl(var(--primary-hue), 80%, 70%)
   );
 
+  --outline-success: light-dark(
+    hsl(var(--success-hue), 70%, 45%),
+    hsl(var(--success-hue), 70%, 60%)
+  );
+
   --outline-error: light-dark(
     hsl(var(--error-hue), 85%, 45%),
     hsl(var(--error-hue), 80%, 70%)
@@ -97,6 +102,11 @@
   --text-accent-inverse: light-dark(
     hsl(var(--primary-hue), 85%, 60%),
     hsl(var(--primary-hue), 80%, 45%)
+  );
+
+  --text-success: light-dark(
+    hsl(var(--success-hue), 85%, 45%),
+    hsl(var(--success-hue), 80%, 70%)
   );
 
   --text-error: light-dark(

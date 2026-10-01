@@ -15,7 +15,7 @@ func (app *application) routes() http.Handler {
 	dynamic := alice.New(app.sessionManager.LoadAndSave)
 	protected := dynamic.Append(app.requireAuthentication)
 
-	mux.Handle("GET /{$}", dynamic.ThenFunc(app.home))
+	mux.Handle("GET /{$}", protected.ThenFunc(app.home))
 	mux.Handle("POST /todo/create", protected.Then(dynamic.ThenFunc(app.todoCreatePost)))
 	mux.Handle("POST /todo/complete/{id}", protected.Then(dynamic.ThenFunc(app.todoCompletePost)))
 	mux.Handle("POST /todo/delete/{id}", protected.ThenFunc(app.todoDeletePost))

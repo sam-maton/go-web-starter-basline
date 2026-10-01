@@ -33,6 +33,10 @@ main {
   border-radius: 4px;
 }
 
+.button-container {
+  display: flex;
+}
+
 .icon-sm {
   width: 16px;
   height: 16px;

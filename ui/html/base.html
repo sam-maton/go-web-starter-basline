@@ -25,7 +25,7 @@
     {{template "nav" .}}
     <main>
       {{with .Flash}}
-      <div class="flash">{{.}}</div>
+      <output data-success class="flash">{{.}}</output>
       {{end}} {{template "main" .}}
     </main>
     <script src="/static/js/main.js" type="text/javascript"></script>
