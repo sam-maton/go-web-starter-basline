@@ -17,10 +17,15 @@ main {
   padding: 0 1rem;
 }
 
+.flash {
+  margin-bottom: 1rem;
+}
+
 .todos {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  padding: 0;
 }
 
 .todos-item {

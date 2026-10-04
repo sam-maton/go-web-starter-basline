@@ -32,6 +32,21 @@
     hsl(var(--primary-hue), 20%, 20%)
   );
 
+  --surface-warning: light-dark(
+    hsl(var(--warning-hue), 45%, 90%),
+    hsl(var(--warning-hue), 35%, 20%)
+  );
+
+  --surface-error: light-dark(
+    hsl(var(--error-hue), 25%, 90%),
+    hsl(var(--error-hue), 20%, 20%)
+  );
+
+  --surface-success: light-dark(
+    hsl(var(--success-hue), 25%, 90%),
+    hsl(var(--success-hue), 20%, 20%)
+  );
+
   --backdrop: light-dark(
     hsl(var(--primary-hue), 0%, 20%),
     hsl(var(--primary-hue), 0%, 80%)
@@ -74,6 +89,11 @@
     hsl(var(--error-hue), 80%, 70%)
   );
 
+  --outline-warning: light-dark(
+    hsl(var(--warning-hue), 100%, 45%),
+    hsl(var(--warning-hue), 80%, 70%)
+  );
+
   --text: light-dark(
     hsl(var(--primary-hue), 10%, 10%),
     hsl(var(--primary-hue), 10%, 95%)
@@ -112,6 +132,11 @@
   --text-error: light-dark(
     hsl(var(--error-hue), 85%, 45%),
     hsl(var(--error-hue), 80%, 70%)
+  );
+
+  --text-warning: light-dark(
+    hsl(var(--warning-hue), 85%, 45%),
+    hsl(var(--warning-hue), 80%, 70%)
   );
 
   --container-accent: light-dark(
