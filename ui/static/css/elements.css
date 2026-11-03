@@ -258,7 +258,8 @@ select:hover {
 input:focus-visible,
 textarea:focus-visible,
 select:focus-visible {
-  outline-color: var(--outline-accent);
+  outline: none;
+  border: 1.5px solid var(--outline-accent);
 }
 
 input[type="checkbox"],
@@ -273,22 +274,24 @@ input[type="radio"]:hover {
   accent-color: var(--container-accent-hover);
 }
 
-input:user-valid,
+input:user-valid:not([data-no-validate]),
 input[aria-valid="true"],
-select:user-valid,
+select:user-valid:not([data-no-validate]),
 select[aria-valid="true"],
-textarea:user-valid,
+textarea:user-valid:not([data-no-validate]),
 textarea[aria-valid="true"] {
-  border: 2px solid var(--outline-success);
+  border: 1.5px solid var(--outline-success);
+  border-radius: 0.25rem;
 }
 
-input:user-invalid,
+input:user-invalid:not([data-no-validate]),
 input[aria-invalid="true"],
-select:user-invalid,
+select:user-invalid:not([data-no-validate]),
 select[aria-invalid="true"],
-textarea:user-invalid,
+textarea:user-invalid:not([data-no-validate]),
 textarea[aria-invalid="true"] {
-  border: 2px solid var(--outline-error);
+  border: 1.5px solid var(--outline-error);
+  border-radius: 0.25rem;
 }
 
 option {
@@ -305,10 +308,6 @@ output[data-success] {
 
 output[data-error] {
   color: var(--text-error);
-}
-
-output[data-warning] {
-  color: var(--text-warning);
 }
 
 output[data-info] {

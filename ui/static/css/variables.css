@@ -3,7 +3,7 @@
 
   --primary-hue: 220;
   --error-hue: 0;
-  --success-hue: 120;
+  --success-hue: 110;
   --warning-hue: 60;
 
   --solid-hover-opacity: 20%;
@@ -125,18 +125,13 @@
   );
 
   --text-success: light-dark(
-    hsl(var(--success-hue), 85%, 45%),
+    hsl(var(--success-hue), 100%, 25%),
     hsl(var(--success-hue), 80%, 70%)
   );
 
   --text-error: light-dark(
     hsl(var(--error-hue), 85%, 45%),
     hsl(var(--error-hue), 80%, 70%)
-  );
-
-  --text-warning: light-dark(
-    hsl(var(--warning-hue), 85%, 45%),
-    hsl(var(--warning-hue), 80%, 70%)
   );
 
   --container-accent: light-dark(
